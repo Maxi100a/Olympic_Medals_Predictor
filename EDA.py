@@ -34,9 +34,10 @@ def transform_data():
     events = events.dropna() # drop NA instead of doing average because of differences in builds between the different sports
 
     # save data into a csv file
-    events.to_csv('./Data/cleaned_events.csv')
+    events.to_csv('./Data/cleaned_events.csv', index=False)
 
 # Uncomment to download the data
 # download_data()
+
 
 transform_data()
