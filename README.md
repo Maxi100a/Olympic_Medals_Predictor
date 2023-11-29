@@ -1,5 +1,6 @@
 # Predicting Champions: An Olympic Medals Data Pipeline
 **ECE 5984:** Data Engineering Project
+
 By: Maximiliano Aedo Espicto, Paola Cando, and Sheila Talty
 ## Description
 
