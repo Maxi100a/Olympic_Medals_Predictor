@@ -4,6 +4,7 @@ import pickle
 from sklearn.neural_network import MLPClassifier
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from s3fs.core import S3FileSystem
 
@@ -23,7 +24,7 @@ def build_MLP_classifier(X_train, y_train):
     mlp.fit(X_train, y_train)
 
     # Save model locally
-    # pickle.dump(mlp, open('../Models/mlp.pkl', 'wb'))
+    # pickle.dump(mlp, open('./models/mlp.pkl', 'wb'))
 
     return mlp
 
@@ -33,7 +34,7 @@ def build_DT_classifier(X_train, y_train):
     clf.fit(X_train, y_train)
 
     # Save model locally
-    # pickle.dump(clf, open('../Models/clf.pkl', 'wb'))
+    # pickle.dump(clf, open('./models/clf.pkl', 'wb'))
 
     return clf
 
@@ -43,16 +44,26 @@ def build_KNN_classifier(X_train, y_train):
     knn.fit(X_train, y_train)
 
     # Save model locally
-    # pickle.dump(knn, open('../Models/knn.pkl', 'wb'))
+    # pickle.dump(knn, open('./models/knn.pkl', 'wb'))
 
     return knn
+
+def build_RF_classifier(X_train, y_train):
+    # build and fit a Random Forest Classifier model to the data
+    rf = RandomForestClassifier(random_state=1, n_estimators=100)
+    rf.fit(X_train, y_train)
+
+    # Save model locally
+    #pickle.dump(rf, open('./models/rf.pkl', 'wb'))
+
+    return rf
 
 def build_models():
     # Read in the processed CSV and split it into training & testing sets
     s3 = S3FileSystem()
     DIR = 's3://ece5984-bucket-aedoesma/final_project/cleaned'
     data = pd.read_pickle(s3.open(f'{DIR}/processed_events.pkl'))
-    #data = pd.read_csv('./Data/processed_events.csv')
+    # data = pd.read_csv('./Data/processed_events.csv')
 
     X = data.drop('Medal', axis=1)
     y = data['Medal']
@@ -64,6 +75,7 @@ def build_models():
     # build_MLP_classifier(X_train, y_train)
     # build_DT_classifier(X_train, y_train)
     # build_KNN_classifier(X_train, y_train)
+    # build_RF_classifier(X_train, y_train)
 
     DIR_models = 's3://ece5984-bucket-aedoesma/final_project/models'
     with s3.open(f"{DIR_models}/mlp.pkl", 'wb') as file:
@@ -72,6 +84,8 @@ def build_models():
         file.write(pickle.dumps(build_DT_classifier(X_train, y_train)))
     with s3.open(f"{DIR_models}/knn.pkl", 'wb') as file:
         file.write(pickle.dumps(build_KNN_classifier(X_train, y_train)))
+    with s3.open(f"{DIR_models}/rf.pkl", 'wb') as file:
+        file.write(pickle.dumps(build_RF_classifier(X_train, y_train)))
 
     # Save the test sets for analyzing
     with s3.open(f"{DIR}/X_test.pkl", "wb") as file:

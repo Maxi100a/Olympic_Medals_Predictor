@@ -14,17 +14,14 @@ def download_data():
     # authenticate kaggle API & download olympics dataset
     api = KaggleApi()
     api.authenticate()
-    api.dataset_download_files('heesoo37/120-years-of-olympic-history-athletes-and-results', './Data/', unzip=True)
+    api.dataset_download_files('heesoo37/120-years-of-olympic-history-athletes-and-results', './data/', unzip=True)
 
     # delete the unused noc_regions csv file (save space)
-    os.remove('./Data/noc_regions.csv')
+    os.remove('./data/noc_regions.csv')
 
     # push to S3 data lake (file already on machine)
-    events = pd.read_csv('./Data/athlete_events.csv')
+    events = pd.read_csv('./data/athlete_events.csv')
     s3 = S3FileSystem()
     DIR = 's3://ece5984-bucket-aedoesma/final_project'
     with s3.open(f"{DIR}/raw_data.pkl", 'wb') as file:
         file.write(pickle.dumps(events))
-
-
-    

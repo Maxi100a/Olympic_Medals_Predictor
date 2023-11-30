@@ -6,6 +6,7 @@ from datetime import datetime
 from batch_ingest import download_data
 from transform import transform_data
 from models import build_models
+from analyze import analyze_models
 
 default_args = {
     'owner': 'airflow',
@@ -43,5 +44,10 @@ model_etl = PythonOperator(
     dag=dag,
 )
 
+analyze_etl = PythonOperator(
+    task_id='analyze_ML_results',
+    python_callable=analyze_models,
+    dag=dag,
+)
 
-ingest_etl >> transform_etl >> model_etl
+ingest_etl >> transform_etl >> model_etl >> analyze_etl
