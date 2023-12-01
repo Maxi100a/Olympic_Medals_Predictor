@@ -11,9 +11,6 @@ The Summer Olympic Games, which are held every four years, have always captivate
 The dataset we used for this project came from Kaggle and is entitled "120 years of Olympic History: Athletes and Results" available at: https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results. 
 
 This is a historical dataset on the modern Olympic Games, including all the Games from Athens 1896 to Rio 2016. The author scraped this data from www.sports-reference.com in May 2018. The data is structured as an Analytics Base Table (ABT), a basic structure made from columns and rows, where each row contains a value for both descriptive and target features for which predictions have been generated [1]. The dataset is comprised of over 270,000 entries across 15 columns. Each entry represents an individual athlete’s competition. 14 of them are considered the features (parameters), and the last column contains the target feature or prediction values. 
-<img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
-<img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
-
 
 #### Feature Names and Description
 | Feature | Description |
@@ -56,6 +53,12 @@ Since the publication of this dataset in 2018, it has been modified several time
 - 27/08/2018 - Added the section 'Variation of height along time' with 2 new pointplots, added a short analysis of age over time for Italian athletes.
 - 28/08/2018 - Added a new section about change in height and weight for Gymnasts over time.
 - 29/08/2018 - Added a new section about change in height and weight for Lifters over time, added index of content at the beginning of the kernel.
+
+### Exploratory Data Analysis (EDA): 
+In data analysis is important to understand each feature use in the ABT. Data exploration is a key part before to attend to build predictive models. The heat plot is used to visualize the correlation of medals won between “Sport” and “NOC” features of different combinations in the ABT. Tablue is also a good tool to understand data.
+We start by defining the target feature and attributes variables. Data preprocessing techniques like data cleaning, aggregation, down sampling, dimensionality reduction/feature selection, discretization & binarization, variable transformation, anomaly detection/outlier analysis and removal are used. 
+<img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
+<img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
 
 
 ## References
