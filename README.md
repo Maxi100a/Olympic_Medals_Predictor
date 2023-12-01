@@ -55,10 +55,11 @@ Since the publication of this dataset in 2018, it has been modified several time
 - 29/08/2018 - Added a new section about change in height and weight for Lifters over time, added index of content at the beginning of the kernel.
 
 ### Exploratory Data Analysis (EDA): 
-In data analysis is important to understand each feature use in the ABT. Data exploration is a key part before to attend to build predictive models. The heat plot is used to visualize the correlation of medals won between “Sport” and “NOC” features of different combinations in the ABT. Tablue is also a good tool to understand data.
-We start by defining the target feature and attributes variables. Data preprocessing techniques like data cleaning, aggregation, down sampling, dimensionality reduction/feature selection, discretization & binarization, variable transformation, anomaly detection/outlier analysis and removal are used. 
+In data analysis, a comprehensive understanding of features in the Analytical Base Table (ABT) is crucial. Prior to building predictive models, thorough data exploration is essential. Tableau proves valuable for visualizing, understanding and uncovering correlations among features within the ABT. The data transformation process involves defining target features and implementing preprocessing techniques such as cleaning, aggregation, down-sampling, and dimensionality reduction to refine the data for robust analysis.
 <img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
 <img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
+<img width="1041" alt="Screenshot 2023-11-30 at 4 36 06 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b4c9b43a-c48a-46fa-82d0-a26e0bacd5d7">
+<img width="1031" alt="Screenshot 2023-11-30 at 4 39 25 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b3636189-d686-4ceb-b1b0-938ccb071367">
 
 
 ## References
