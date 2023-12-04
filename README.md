@@ -40,7 +40,7 @@ This is a historical dataset on the modern Olympic Games, including all the Game
 
 
 ### Pipeline Architecture
-![pipeline-architecture](Images/pipeline.jpg)
+![pipeline-architecture](Images/pipeline.png)
 
 ### Data Quality Assessment
 As this data was scraped by a group of people from a third-party website that tracks sporting events, there is a possibility that this data could’ve been perturbed. However, the website that hosts the dataset is compiled by a group of self-proclaimed Olympic Game enthusiasts, which speaks to its credibility. The authenticity of the data is further affirmed by its historical scope, spanning back to the inaugural Olympic Games in 1896. 
@@ -67,6 +67,8 @@ Before you get the code running, you will need to install the following Python p
 pip install pandas
 pip install scikit-learn
 pip install kaggle
+pip install matplotlib
+pip install seaborn
 ```
 
 ### Kaggle API Authentication
