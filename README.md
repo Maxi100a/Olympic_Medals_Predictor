@@ -64,6 +64,13 @@ In data analysis, a comprehensive understanding of features in the Analytical Ba
 ### Machine Learning Models Ml
 This project employed four classifiers: Multilayer Perceptron (MLP), Decision Tree, K-Nearest Neighbors (KNN), and Random Forest. MLP is a neural network with input, hidden, and output layers processing information through weighted connections. Decision Trees use features to create a tree-like structure by making decisions at each node. KNN classifies a data point based on the majority of its k-nearest neighbors in the feature space, with k being a user-defined parameter. Random Forests consist of decision trees trained on random subsets of data and features, and the final prediction is determined by a majority vote and averaging.
 
+### Thorough Investigation
+Our project not only showcased the feasibility of predicting Olympic medal outcomes based on historical data but also demonstrated accuracy and performance, especially considering the intricate nature of predicting sports outcomes. To take this to a larger scale, we propose integrating results from Tokyo 2020 into the dataset and establishing real-time data collection mechanisms through partnerships with sports organizations. This expanded dataset and models could then be applied to various sports competitions, allowing the prediction of winners based on historical trends.
+
+In terms of technical leadership, our primary focus should be on elevating the predictive model by incorporating other machine learning algorithms and using advanced data features. Recognizing the ever-evolving landscape of sports, continuous improvement is necessary for an adaptive approach to changes in sports dynamics, athlete performance, and other influential factors. An additional crucial step involves addressing potential biases inherent in historical data and staying aware of the dynamic nature of sports.
+
+Furthermore, we recommend the use of a continuous learning system that adapts to emerging trends and evolving athlete performances, ensuring the model remains cutting-edge and updated for the sporting world. This holistic approach positions the project for sustained success and relevance in the dynamic realm of sports analytics.
+
 ## References
 [1] John D. Kelleher, Brian Mac Namee, Aoife D'Arcy. 2020. Fundamentals of machine learning for predictive data analytics: algorithms, worked examples, and case studies. Data to Insights to Decisions, Data exploration, pp. 23 to 113.
 
