@@ -60,7 +60,7 @@ In data analysis, a comprehensive understanding of features in the Analytical Ba
 
 <img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
 <img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
-<img width="1041" alt="Screenshot 2023-11-30 at 4 36 06 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b4c9b43a-c48a-46fa-82d0-a26e0bacd5d7">
+<img width="1027" alt="Screenshot 2023-12-04 at 9 23 40 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/84962a41-0632-4154-94e1-53dc4ce8b1f3">
 <img width="1031" alt="Screenshot 2023-11-30 at 4 39 25 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b3636189-d686-4ceb-b1b0-938ccb071367">
 
 ### Data Transformations
