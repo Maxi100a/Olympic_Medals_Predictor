@@ -4,7 +4,13 @@ import seaborn as sns
 import tempfile
 import numpy as np
 from sklearn.metrics import accuracy_score, confusion_matrix
-# from s3fs.core import S3FileSystem
+from s3fs.core import S3FileSystem
+
+"""
+To Run Locally:
+- Use the local function provided at the bottom of this file
+- To show plots sequentially instead of saving, you can remove the DIR parameter in the generate_confusion_matrix call
+"""
 
 DIR = 's3://ece5984-bucket-aedoesma/final_project' # S3 landing location
 
