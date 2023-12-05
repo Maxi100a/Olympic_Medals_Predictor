@@ -71,23 +71,23 @@ In order to prepare our dataset for the machine learning models, it was necessar
 4. Label encode the medal column - This transforms the categorical feature into an ordinal feature. The following values were encoded: 1: Gold, 2: Silver, 3: Bronze, 4: No Medal
 5. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
 
-### Machine Learning Models Ml
-A classification model is a machine learning type of modeling used to predict the categories or classes of a given data set. In this case, we processed, trained, and evaluated the "120-years-of-olympic-history-athletes-and-results" dataset using four different models: Artificial Neural Networks (MPL), Decision Tree  Classifier(CLF), K-Nearest Neighbors (KNN), and Random Forest (RF), to predict the multi-categorical variable 'medal'. 
+### Models Explanation and Analysis
+A classification model is a machine learning type of modeling used to predict the categories or classes of a given data set. In this case, we processed, trained, and evaluated the "120-years-of-olympic-history-athletes-and-results" dataset using four different models: Artificial Neural Networks (MPL), Decision Tree  Classifier(CLF), K-Nearest Neighbors (KNN), and Random Forest (RF), to predict the multi-categorical variable 'medal'. The image below contains the results of our 4 models.
 
-<img width="401" alt="Screenshot 2023-12-04 at 9 11 50 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/81592332-456b-4e84-9305-7f041e9c29ad">
+![Model Accuracy Results](/Images/model_results.png)
 
-After comparing the results, we can conclude that the Random Forest classifier was the best performer overall. The metrics achieved were similar to the other models, but the Random Forest classifier ran the faster computational time, and the complexity was nominal.
-The Neural Network model could be improved by testing different architectures. However, it's important consider the objectives of the classification model and factors such as time, computation, and performance. In order to efficient use and maximize the prediction tool.
-Overall, the Random Forest classifier was the best choice for this specific model. It is fundamental to notice that every prediction case is unique, hence the necessity to evaluate each model as an exclusive case and choose the classifier that best suits the specific needs of each application. 
+After comparing the results of each model, we can conclude that the Random Forest classifier was the best performer overall. The metrics achieved were similar to the other models, but the Random Forest classifier trains relatively faster than the other models and the complexity was nominal. The Neural Network model is the model with most room for improvement, since you can change the structure of the layers. However, it's important to consider the objectives of the classification model and factors such as time, computation, and performance.
+
+
+Overall, the best choice for the task at hand is the Random Forest model. It trains the quicket of all our models and performs the best. Listed below you will find confusion matrices for each of the four models. There is a heavy imbalance for class 4 predictions, which is the No Medals category. This balance matches the distribution of classes in our dataset itself, which speaks to our model's performance. Additionally, each of models perform differently on predicting medals vs. non medals. 
+
+
 The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
 
-<img width="788" alt="MLP Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/f7553ff7-eae3-4328-9a33-41c685c28472">
-
-<img width="799" alt="Decision Tree Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/bb693d02-58bb-46ec-87f0-d87b55ccb64a">
-
-<img width="796" alt="KNN Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/6eb21225-9e87-46c8-9f6b-7b6480549ef2">
-
-<img width="792" alt="RF Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/ce159537-e841-46a9-aa8a-fcf9c23866b1">
+![MLP Confusion Matrix](/Images/mlp.png)
+![Decision Tree Confusion Matrix](/Images/dt.png)
+![KNN Confusion Matrix](/Images/knn.png)
+![RF Confusion Matrix](/Images/rf.png)
 
 
 ### Thorough Investigation
@@ -116,16 +116,15 @@ If you run into issues with this step, you can manually download the dataset fro
 This project is set up to function on an Amazon EC2 instance running the docker container utilized in class. If you are attempting to run the project on your local machine, follow the instructions to "de-AWS" the python files. 
 
 ### S3 Directory Link
-At the top of each file (batch_ingest, transform, models, analyze), you MUST specify the outmost folder for an S3 bucket. For example, this project was set up to go to "s3://\[CLASS_BUCKET\]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so only one folder is necessary per file.
+At the top of each file (batch_ingest, transform, models, analyze), **you MUST specify the parent folder for the S3 bucket**. For example, this project was set up to go to "s3://[CLASS_BUCKET]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so use the same folder across all files.
 
 ### Running the Code
-In order to run the code, you need to transfer all of the python files in the dags folder into airflow dags container. The easiest way to do is is to create each file individually using the `nano [filename].py` command and copying over the code.
+In order to run the code, you need to transfer all of the python files in the dags folder located in the airflow setup on the Docker container. If you have not created the airflow environment, you must first run `airflow standalone` on the Docker container to create all the necessary folders.
+
+The easiest way to transfer each file is to use the `nano [filename].py` command and copy over the code.
 
 From there, run airflow in standalone mode and you can run the dag. It will take 30 minutes - 1 hour to run.
 
-
-# TO-DO:
-- Include Results Infographic
 
 ## References
 [1] John D. Kelleher, Brian Mac Namee, Aoife D'Arcy. 2020. Fundamentals of machine learning for predictive data analytics: algorithms, worked examples, and case studies. Data to Insights to Decisions, Data exploration, pp. 23 to 113.
