@@ -104,8 +104,13 @@ This project is set up to function on an Amazon EC2 instance running the docker 
 ### S3 Directory Link
 At the top of each file (batch_ingest, transform, models, analyze), you MUST specify the outmost folder for an S3 bucket. For example, this project was set up to go to "s3://\[CLASS_BUCKET\]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so only one folder is necessary per file.
 
+### Running the Code
+In order to run the code, you need to transfer all of the python files in the dags folder into airflow dags container. The easiest way to do is is to create each file individually using the `nano [filename].py` command and copying over the code.
+
+From there, run airflow in standalone mode and you can run the dag. It will take 30 minutes - 1 hour to run.
+
+
 # TO-DO:
-- Write about Data Transformation Models
 - Include Results Infographic
 
 ## References
