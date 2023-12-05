@@ -85,6 +85,7 @@ pip install scikit-learn
 pip install kaggle
 pip install matplotlib
 pip install seaborn
+pip install numpy
 ```
 
 ### Kaggle API Authentication
