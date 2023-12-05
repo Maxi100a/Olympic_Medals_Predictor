@@ -128,9 +128,9 @@ At the top of each file (batch_ingest, transform, models, analyze), **you MUST s
 ### Running the Code
 In order to run the code, you need to transfer all of the Python files in the dags folder in this repo to the dags folder located in the airflow setup on the Docker container. If you have not created the airflow environment, you must first run `airflow standalone` on the Docker container to create all the necessary folders.
 
-The easiest way to transfer each file is to use the `nano [filename].py` command and copy over the code.
+The easiest way to transfer each file is to use the `data_pipeline_dag` command and copy over the code.
 
-From there, run airflow in standalone mode and you can run the dag. It will take 30 minutes - 1 hour to run.
+From there, run airflow in standalone mode and you can run the dag called `nano [filename].py`. It will take 30 minutes - 1 hour to run.
 
 
 ## References
