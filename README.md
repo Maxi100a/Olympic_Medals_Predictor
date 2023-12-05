@@ -79,7 +79,14 @@ After comparing the results, we can conclude that the Random Forest classifier w
 The Neural Network model could be improved by testing different architectures. However, it's important consider the objectives of the classification model and factors such as time, computation, and performance. In order to efficient use and maximize the prediction tool.
 Overall, the Random Forest classifier was the best choice for this specific model. It is fundamental to notice that every prediction case is unique, hence the necessity to evaluate each model as an exclusive case and choose the classifier that best suits the specific needs of each application. 
 The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
-![image](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/795b4434-e6ac-4eda-833b-3e25c970035a)
+
+<img width="788" alt="MLP Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/f7553ff7-eae3-4328-9a33-41c685c28472">
+
+<img width="799" alt="Decision Tree Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/bb693d02-58bb-46ec-87f0-d87b55ccb64a">
+
+<img width="796" alt="KNN Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/6eb21225-9e87-46c8-9f6b-7b6480549ef2">
+
+<img width="792" alt="RF Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/ce159537-e841-46a9-aa8a-fcf9c23866b1">
 
 
 ### Thorough Investigation
