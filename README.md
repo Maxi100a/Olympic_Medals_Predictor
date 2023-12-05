@@ -5,7 +5,7 @@ By: Maximiliano Aedo Espicto, Paola Cando, and Sheila Talty
 ## Description
 
 ### Project's Function
-The Summer Olympic Games, which are held every four years, have always captivated the hearts and minds of those who live in competing countries. There is no greater thrill than watching the top athletes in your country take the global stage and achieve the unthinkable – winning the gold medal. When the games occur, the question on every spectator's mind is always the same: who will be the grand victor of the Olympic games? One metric to answer this question is the overall medal count. The country that wins the most medals is the one with the strongest athletes. This project aims to answer that question. With the Olympic Games coming soon to France in 2024, this project will aim to build a data engineering pipeline that can predict which country will win the most medals. Cambridge Dictionary defines data as “information, especially facts or numbers, collected to be examined and considered and used to help decision-making, or information in an electronic form that can be stored and used by a computer” (1). This project aims to synthesize the different technologies that go into a data engineering pipeline to design, build, and maintain the infrastructure and systems that support the collection, storage, and analysis of data. This pipeline will be used to train different machine learning algorithms to find the best one that can predict the athletes.
+The Summer Olympic Games, which are held every four years, have always captivated the hearts and minds of those who live in competing countries. There is no greater thrill than watching the top athletes in your country take the global stage and achieve the unthinkable – winning the gold medal. When the games occur, the question on every spectator's mind is always the same: who will be the grand victor of the Olympic games? One metric to answer this question is the overall medal count. The country that wins the most medals is the one with the strongest athletes. This project aims to answer that question. With the Olympic Games coming soon to France in 2024, this project will aim to build a data engineering pipeline that can predict which country will win the most medals. Cambridge Dictionary defines data as “information, especially facts or numbers, collected to be examined and considered and used to help decision-making or information in an electronic form that can be stored and used by a computer” (1). This project aims to synthesize the different technologies that go into a data engineering pipeline to design, build, and maintain the infrastructure and systems that support the collection, storage, and analysis of data. This pipeline will be used to train different machine learning algorithms to find the best one that can predict the athletes.
 
 ### Dataset
 The dataset we used for this project came from Kaggle and is entitled "120 years of Olympic History: Athletes and Results" available at: https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results. 
@@ -52,7 +52,7 @@ Since the publication of this dataset in 2018, it has been modified several time
 - 25/08/2018 - Inserted a new section "Evolution of the Olympics over time"
 - 26/08/2018 - Added the sections 'Variation of age and weight along time' with 4 new graphs (boxplot and pointplot).
 - 27/08/2018 - Added the section 'Variation of height along time' with 2 new pointplots, added a short analysis of age over time for Italian athletes.
-- 28/08/2018 - Added a new section about change in height and weight for Gymnasts over time.
+- 28/08/2018 - Added a new section about changes in height and weight for Gymnasts over time.
 - 29/08/2018 - Added a new section about change in height and weight for Lifters over time, added index of content at the beginning of the kernel.
 
 ### Exploratory Data Analysis (EDA): 
@@ -66,9 +66,9 @@ In data analysis, a comprehensive understanding of features in the Analytical Ba
 ### Data Transformations
 In order to prepare our dataset for the machine learning models, it was necessary to transform it into a clean dataset. Our pipeline performs the following transformations in this specific order:
 1. Filter out all of the winter games - As our project focuses solely on summer games, winter games are extraneous
-2. Drop the NOC, ID, Name, Games, Season colums - NOC, ID, and Name columns essentially serve as identifiers and do not yield any substantial gain for our machine learning models. Season is removed because we are solely using summer games. Games column is removed because it contains the year and season, one of which is still present and the other is removed.
+2. Drop the NOC, ID, Name, Games, Season columns - NOC, ID, and Name columns essentially serve as identifiers and do not yield any substantial gain for our machine learning models. The season column is removed because we are solely using summer games. The games column is removed because it contains the year and season, one of which is still present, and the other is removed.
 3. Replace NaNs in the Medals column with No Medals - This was done to fill in the missing value in the medals column
-4. Drop the entries with missing values - We decided to drop this as missing values in any column would result in the models not learning correctly. We chose this instead of using an average for each of the features because of the different physical builds that participate in the games. An athelete who performs in track is going to weigh significantly different than those in heavy sports. 
+4. Drop the entries with missing values - We decided to drop this as missing values in any column would result in the models not learning correctly. We chose this instead of using an average for each of the features because of the different physical builds that participate in the games. An athlete who performs in track is going to weigh significantly different than those in heavy sports. 
 5. Label encode the medal column - This transforms the categorical feature into an ordinal feature. The following values were encoded: 1: Gold, 2: Silver, 3: Bronze, 4: No Medal
 6. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
 
@@ -77,13 +77,13 @@ A classification model is a machine learning type of modeling used to predict th
 
 ![Model Accuracy Results](/Images/model_results.png)
 
-After comparing the results of each model, we can conclude that the Random Forest classifier was the best performer overall. The metrics achieved were similar to the other models, but the Random Forest classifier trains relatively faster than the other models and the complexity was nominal. The Neural Network model is the model with most room for improvement, since you can change the structure of the layers. However, it's important to consider the objectives of the classification model and factors such as time, computation, and performance.
+After comparing the results of each model, we can conclude that the Random Forest classifier was the best performer overall. The metrics achieved were similar to the other models, but the Random Forest classifier trains relatively faster than the other models and the complexity was nominal. The Neural Network model is the model with the most room for improvement since you can change the structure of the layers. However, it's important to consider the objectives of the classification model and factors such as time, computation, and performance.
 
 
-Overall, the best choice for the task at hand is the Random Forest model. It trains the quicket of all our models and performs the best. Listed below you will find confusion matrices for each of the four models. There is a heavy imbalance for class 4 predictions, which is the No Medals category. This balance matches the distribution of classes in our dataset itself, which speaks to our model's performance. Additionally, each of models perform differently on predicting medals vs. non medals. 
+Overall, the best choice for the task at hand is the Random Forest model. It trains the quickest of all our models and performs the best. Listed below you will find confusion matrices for each of the four models. There is a heavy imbalance for class 4 predictions, which is the No Medals category. This balance matches the distribution of classes in our dataset itself, which speaks to our model's performance. Additionally, each of the models perform differently in predicting medals vs. non-medals. 
 
 
-The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
+The data provided for a classification problem has its own characteristics that make it unique, hence the importance of understanding and analysis of it before deciding on a model. When it comes down to choosing what specific method is the best to use for a classification problem, the data to be utilized plays a role in the process of selecting the algorithm. For instance, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case, our target feature has an imbalance due to the majority of entries having a "No Medal" result.
 
 ![MLP Confusion Matrix](/Images/mlp.png)
 ![Decision Tree Confusion Matrix](/Images/dt.png)
@@ -91,18 +91,14 @@ The data provided for a classification problem has their own characteristics tha
 ![RF Confusion Matrix](/Images/rf.png)
 
 
-### Thorough Investigation
+### Thorough Investigation & Future Steps
 The Summer Olympic Games are held every 4 years, this event transcends beyond mere sports, becoming a target for substantial private and government investments. The ability to predict future winners offers a unique niche for various industries to proactively develop ideas and products. While our current project has achieved high accuracy in our models, there remains room for improvement for further ML projects.
-Data collection of the most recent Olympic Games held in Tokyo is one of the next steps to improve the model. Also, adding comprehensive datasets, covering details about athletes, countries, and events, are essential for a robust analysis. The goal can extend beyond predicting overall medal counts; next projects can aspire to forecast the top ten performers in both individual athletes and countries.
-This would entail a deeper exploration of individual performance metrics, historical data, and other relevant factors that contribute to an athlete's success on the Olympic stage.
 
-It is important to notice that continuous refinement of the models will be imperative. The dynamic nature of sports demands an adaptive approach, necessitating periodic updates to the models with fresh data. Additionally, exploring advanced modeling techniques and algorithms will be pivotal to staying at the forefront of predictive accuracy.
-Ultimately, this project not only serves as a tool for anticipating Olympic outcomes but also underscores the broader potential for innovation and insight across diverse industries. 
+The goal can extend beyond predicting overall medal counts; next projects can aspire to forecast the top ten performers in both individual athletes and countries, this would entail a deeper exploration of individual performance metrics, historical data, and other relevant factors that contribute to an athlete's success on the Olympic stage.
 
-To scale up this project, add the data from Tokyo 2020 as well as real-time data input can expand the dataset. The models could also be used in other sports competitions to predict the winners based on historical data. On the technical side, exploring other machine learning algorithms can show improvement in prediction. Additionally, you can exploring different architectures for a neural network. This model is as good as it's hardward limitations allow, so if you create a more intricate strucutre, it is possible to improve this model's accuracy. Aside from your standard python debugging difficulties, there were no major limitations for this project. 
+To scale up this project, you can add the data from Tokyo 2020 as well as real-time data input can expand the dataset. The models could also be used in other sports competitions to predict the winners based on historical data. On the technical side, exploring other machine learning algorithms can show improvement in prediction. Additionally, you explore different architectures for a neural network. This model is as good as its hardware limitations allow, so if you create a more intricate structure, it is possible to improve this model's accuracy. Aside from your standard Python debugging difficulties, there were no major limitations for this project. 
 
-### Future Steps
-Following this project, we recommend incoporating more into the final visualization of the models. For example, hosting the data on an interactive webserver that allows you to explore the predictions of the models would make for a challenging addition to this project that would elevate it. Another example of how you can change this project is instead of dropping the entries with missing columns, fill them with an average value grouping by sport. If you do this, you will significantly change the size of the dataset which may allow for better model performance.
+Following this project, we recommend incorporating more into the final visualization of the models. For example, hosting the data on an interactive webserver that allows you to explore the predictions of the models would make for a challenging addition to this project that would elevate it. Another example of how you can change this project is instead of dropping the entries with missing columns, fill them with an average value grouping by sport. If you do this, you will significantly change the size of the dataset which may allow for better model performance.
 
 
 ## Setup
@@ -121,16 +117,16 @@ pip install numpy
 ### Kaggle API Authentication
 After you install the Kaggle package, you must create an authentication key from Kaggle and upload it locally to your device before running the code to download the datasets. Instructions are provided [on the Kaggle website.](https://www.kaggle.com/docs/api) 
 
-If you run into issues with this step, you can manually download the dataset from Kaggle as long as you store it into the expected file structure. 
+If you run into issues with this step, you can manually download the dataset from Kaggle as long as you store it in the expected file structure. 
 
 ### Local vs Amazon AWS
-This project is set up to function on an Amazon EC2 instance running the docker container utilized in class. If you are attempting to run the project on your local machine, follow the instructions to "de-AWS" the python files. 
+This project is set up to function on an Amazon EC2 instance running the docker container utilized in class. If you are attempting to run the project on your local machine, follow the instructions to "de-AWS" the Python files. 
 
 ### S3 Directory Link
 At the top of each file (batch_ingest, transform, models, analyze), **you MUST specify the parent folder for the S3 bucket**. For example, this project was set up to go to "s3://[CLASS_BUCKET]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so use the same folder across all files.
 
 ## Running the Code
-In order to run the code, you need to transfer all of the python files in the dags folder located in the airflow setup on the Docker container. If you have not created the airflow environment, you must first run `airflow standalone` on the Docker container to create all the necessary folders.
+In order to run the code, you need to transfer all of the Python files in the dags folder in this repo to the dags folder located in the airflow setup on the Docker container. If you have not created the airflow environment, you must first run `airflow standalone` on the Docker container to create all the necessary folders.
 
 The easiest way to transfer each file is to use the `nano [filename].py` command and copy over the code.
 
