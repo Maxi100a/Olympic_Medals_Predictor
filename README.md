@@ -57,6 +57,7 @@ Since the publication of this dataset in 2018, it has been modified several time
 
 ### Exploratory Data Analysis (EDA): 
 In data analysis, a comprehensive understanding of features in the Analytical Base Table (ABT) is crucial. Prior to building predictive models, thorough data exploration is essential. Tableau proves valuable for visualizing, understanding and uncovering correlations among features within the ABT.
+
 <img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
 <img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
 <img width="1041" alt="Screenshot 2023-11-30 at 4 36 06 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b4c9b43a-c48a-46fa-82d0-a26e0bacd5d7">
@@ -71,14 +72,27 @@ In order to prepare our dataset for the machine learning models, it was necessar
 5. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
 
 ### Machine Learning Models Ml
-This project employed four classifiers: Multilayer Perceptron (MLP), Decision Tree, K-Nearest Neighbors (KNN), and Random Forest. MLP is a neural network with input, hidden, and output layers processing information through weighted connections. Decision Trees use features to create a tree-like structure by making decisions at each node. KNN classifies a data point based on the majority of its k-nearest neighbors in the feature space, with k being a user-defined parameter. Random Forests consist of decision trees trained on random subsets of data and features, and the final prediction is determined by a majority vote and averaging.
+A classification model is a machine learning type of modeling used to predict the categories or classes of a given data set. In this case, we processed, trained, and evaluated the "120-years-of-olympic-history-athletes-and-results" dataset using four different models: Artificial Neural Networks (MPL), Decision Tree  Classifier(CLF), K-Nearest Neighbors (KNN), and Random Forest (RF), to predict the multi-categorical variable 'medal'. 
+
+<img width="401" alt="Screenshot 2023-12-04 at 9 11 50 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/81592332-456b-4e84-9305-7f041e9c29ad">
+
+After comparing the results, we can conclude that the Random Forest classifier was the best performer overall. The metrics achieved were similar to the other models, but the Random Forest classifier ran the faster computational time, and the complexity was nominal.
+The Neural Network model could be improved by testing different architectures. However, it's important consider the objectives of the classification model and factors such as time, computation, and performance. In order to efficient use and maximize the prediction tool.
+Overall, the Random Forest classifier was the best choice for this specific model. It is fundamental to notice that every prediction case is unique, hence the necessity to evaluate each model as an exclusive case and choose the classifier that best suits the specific needs of each application. 
+The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
+
+<img width="788" alt="MLP Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/f7553ff7-eae3-4328-9a33-41c685c28472">
+
+<img width="799" alt="Decision Tree Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/bb693d02-58bb-46ec-87f0-d87b55ccb64a">
+
+<img width="796" alt="KNN Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/6eb21225-9e87-46c8-9f6b-7b6480549ef2">
+
+<img width="792" alt="RF Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/ce159537-e841-46a9-aa8a-fcf9c23866b1">
+
 
 ### Thorough Investigation
-Our project not only showcased the feasibility of predicting Olympic medal outcomes based on historical data but also demonstrated accuracy and performance, especially considering the intricate nature of predicting sports outcomes. To take this to a larger scale, we propose integrating results from Tokyo 2020 into the dataset and establishing real-time data collection mechanisms through partnerships with sports organizations. This expanded dataset and models could then be applied to various sports competitions, allowing the prediction of winners based on historical trends.
+Our project showed you can predict Olympic medal outcome based on historical data with a high level of acciraacy and high performance. To scale up this project, the data from Tokyo 2020 as well as real-time data into the dataset. The models could also be used in other sports competitions to predict the winners. Technically, other machine learning algrotisms can be implemeted
 
-In terms of technical leadership, our primary focus should be on elevating the predictive model by incorporating other machine learning algorithms and using advanced data features. Recognizing the ever-evolving landscape of sports, continuous improvement is necessary for an adaptive approach to changes in sports dynamics, athlete performance, and other influential factors. An additional crucial step involves addressing potential biases inherent in historical data and staying aware of the dynamic nature of sports.
-
-Furthermore, we recommend the use of a continuous learning system that adapts to emerging trends and evolving athlete performances, ensuring the model remains cutting-edge and updated for the sporting world. This holistic approach positions the project for sustained success and relevance in the dynamic realm of sports analytics.
 
 ## Setup
 ### Installation
