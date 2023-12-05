@@ -60,7 +60,7 @@ In data analysis, a comprehensive understanding of features in the Analytical Ba
 
 <img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
 <img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
-<img width="1041" alt="Screenshot 2023-11-30 at 4 36 06 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b4c9b43a-c48a-46fa-82d0-a26e0bacd5d7">
+<img width="1027" alt="Screenshot 2023-12-04 at 9 23 40 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/84962a41-0632-4154-94e1-53dc4ce8b1f3">
 <img width="1031" alt="Screenshot 2023-11-30 at 4 39 25 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b3636189-d686-4ceb-b1b0-938ccb071367">
 
 ### Data Transformations
@@ -91,7 +91,8 @@ The data provided for a classification problem has their own characteristics tha
 
 
 ### Thorough Investigation
-Our project showed you can predict Olympic medal outcome based on historical data with a high level of acciraacy and high performance. To scale up this project, the data from Tokyo 2020 as well as real-time data into the dataset. The models could also be used in other sports competitions to predict the winners. Technically, other machine learning algrotisms can be implemeted
+Our project showed you can predict Olympic medal outcome based on historical data with a high level of accuracy with each of the models ranging from 88-92% accuracy. To evaluate our results, we created a confusion matrix for each model. A confusion matrix shows the model’s prediction compared to the true outcome allowing a comprenenshive view. Our results reflected similar patterns with relatively similar outcomes accross all models. Excluded instances of no medals, the models predicted gold the best, with decision tree prediction it correctly 62.76%, followed by silver (54.42%) and bronze (52.24%). Notably, predicting no medal was the best across all models with random forest predicting it correctly 99.67% of the time. Interestingly, when no medal is predicted instead of either a gold, silver or bronze, gold preforms the best. For example in the decision tree matrix, a no medal was predicted instead of a gold 26.18% compared to 34.65% for silver and 38.8% for bronze. 
+
 
 
 ## Setup
