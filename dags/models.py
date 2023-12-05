@@ -18,6 +18,8 @@ Uncomment lines 97 98 (Test set saving code)
 Comment lines 93-86
 """
 
+DIR = 's3://ece5984-bucket-aedoesma/final_project'
+
 def build_MLP_classifier(X_train, y_train):
     # Build and fit the Multi-Layer Perceptron model to the data
     mlp = MLPClassifier(random_state=1, max_iter=200)
@@ -61,8 +63,7 @@ def build_RF_classifier(X_train, y_train):
 def build_models():
     # Read in the processed CSV and split it into training & testing sets
     s3 = S3FileSystem()
-    DIR = 's3://ece5984-bucket-aedoesma/final_project/cleaned'
-    data = pd.read_pickle(s3.open(f'{DIR}/processed_events.pkl'))
+    data = pd.read_pickle(s3.open(f'{DIR}/cleaned/processed_events.pkl'))
     # data = pd.read_csv('./Data/processed_events.csv')
 
     X = data.drop('Medal', axis=1)
@@ -77,7 +78,7 @@ def build_models():
     # build_KNN_classifier(X_train, y_train)
     # build_RF_classifier(X_train, y_train)
 
-    DIR_models = 's3://ece5984-bucket-aedoesma/final_project/models'
+    DIR_models = f'{DIR}/models'
     with s3.open(f"{DIR_models}/mlp.pkl", 'wb') as file:
         file.write(pickle.dumps(build_MLP_classifier(X_train, y_train)))
     with s3.open(f"{DIR_models}/clf.pkl", 'wb') as file:
@@ -88,9 +89,9 @@ def build_models():
         file.write(pickle.dumps(build_RF_classifier(X_train, y_train)))
 
     # Save the test sets for analyzing
-    with s3.open(f"{DIR}/X_test.pkl", "wb") as file:
+    with s3.open(f"{DIR}/cleaned/X_test.pkl", "wb") as file:
         file.write(pickle.dumps(X_test))
-    with s3.open(f"{DIR}/y_test.pkl", "wb") as file:
+    with s3.open(f"{DIR}/cleaned/y_test.pkl", "wb") as file:
         file.write(pickle.dumps(y_test))
 
     # Save locally

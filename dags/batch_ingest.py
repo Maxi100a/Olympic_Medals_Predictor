@@ -10,6 +10,8 @@ Comment out line 2 (s3fs import statement)
 Comment out 22-26 (file already downloads to machine, these lines are just for pushing onto S3)
 """
 
+DIR = 's3://ece5984-bucket-aedoesma/final_project' # Replace with S3 address
+
 def download_data():
     # authenticate kaggle API & download olympics dataset
     api = KaggleApi()
@@ -22,6 +24,5 @@ def download_data():
     # push to S3 data lake (file already on machine)
     events = pd.read_csv('./data/athlete_events.csv')
     s3 = S3FileSystem()
-    DIR = 's3://ece5984-bucket-aedoesma/final_project'
     with s3.open(f"{DIR}/raw_data.pkl", 'wb') as file:
         file.write(pickle.dumps(events))

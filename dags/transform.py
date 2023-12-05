@@ -9,10 +9,11 @@ Uncomment line 16 (comment out 13-15): loads in event data from CSV
 Uncomment line 42 (comment out 43-45): saves cleaned event data to CSV
 '''
 
+DIR = 's3://ece5984-bucket-aedoesma/final_project'
+
 def transform_data():
     # Read data from S3
     s3 = S3FileSystem()
-    DIR = 's3://ece5984-bucket-aedoesma/final_project'
     events = pd.read_pickle(s3.open(f"{DIR}/raw_data.pkl"))
     #events = pd.read_csv('./Data/athlete_events.csv')
 
@@ -22,9 +23,6 @@ def transform_data():
 
     # Replace NaN with 'No Medal'
     events['Medal'] = events['Medal'].fillna('No Medal')
-
-    # There are significant missing NAs in age, height and weight at 9,189, 51,857, and 53,854 values respectively
-    #print(events[events.isnull().any(axis=1)].sort_values(by="Year"))
 
     # still have 166,706 entries 
     events = events.dropna() # drop NA instead of doing average because of differences in builds between the different sports
@@ -40,6 +38,5 @@ def transform_data():
 
     # save data into a S3 Warehouse
     #encoded_data.to_csv('./Data/processed_events.csv', index=False)
-    DIR_wh = 's3://ece5984-bucket-aedoesma/final_project/cleaned'
-    with s3.open(f"{DIR_wh}/processed_events.pkl", "wb") as file:
+    with s3.open(f"{DIR}/cleaned/processed_events.pkl", "wb") as file:
         file.write(pickle.dumps(encoded_data))
