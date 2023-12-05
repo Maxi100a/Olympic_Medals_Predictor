@@ -98,7 +98,7 @@ Excluded instances of no medals, the models predicted gold the best, with decisi
 To scale up this project, add the data from Tokyo 2020 as well as real-time data input can expand the dataset. The models could also be used in other sports competitions to predict the winners based on historical data. On the technical side, exploring other machine learning algorithms can show improvement in prediction. Additionally, you can exploring different architectures for a neural network. This model is as good as it's hardward limitations allow, so if you create a more intricate strucutre, it is possible to improve this model's accuracy. Aside from your standard python debugging difficulties, there were no major limitations for this project. 
 
 ### Future Steps
-Following this project, we recommend incoporating more into the final visualization of the models. For example, hosting the data on an interactive webserver that allows you to explore the predictions of the models would make for a challenging addition to this project that would elevate it. Another example of how you can change this project is instead of dropping the entries with missing columns, fill them in with an average value for that sport. If you do this, you will significantly change the size of the dataset which may allow for better model performance.
+Following this project, we recommend incoporating more into the final visualization of the models. For example, hosting the data on an interactive webserver that allows you to explore the predictions of the models would make for a challenging addition to this project that would elevate it. Another example of how you can change this project is instead of dropping the entries with missing columns, fill them with an average value grouping by sport. If you do this, you will significantly change the size of the dataset which may allow for better model performance.
 
 
 ## Setup
@@ -125,7 +125,7 @@ This project is set up to function on an Amazon EC2 instance running the docker 
 ### S3 Directory Link
 At the top of each file (batch_ingest, transform, models, analyze), **you MUST specify the parent folder for the S3 bucket**. For example, this project was set up to go to "s3://[CLASS_BUCKET]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so use the same folder across all files.
 
-### Running the Code
+## Running the Code
 In order to run the code, you need to transfer all of the python files in the dags folder located in the airflow setup on the Docker container. If you have not created the airflow environment, you must first run `airflow standalone` on the Docker container to create all the necessary folders.
 
 The easiest way to transfer each file is to use the `nano [filename].py` command and copy over the code.
