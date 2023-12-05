@@ -115,7 +115,7 @@ pip install numpy
 ```
 
 ### Kaggle API Authentication
-After you install the Kaggle package, you must create an authentication key from Kaggle and upload it locally to your device before running the code to download the datasets. Instructions are provided [on the Kaggle website.](https://www.kaggle.com/docs/api) 
+After you install the Kaggle package, you must create an authentication key from Kaggle and upload it locally to your device (inside the docker container) before running the code to download the datasets. Instructions are provided [on the Kaggle website.](https://www.kaggle.com/docs/api) 
 
 If you run into issues with this step, you can manually download the dataset from Kaggle as long as you store it in the expected file structure. 
 
