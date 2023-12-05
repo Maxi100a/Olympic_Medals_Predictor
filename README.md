@@ -81,16 +81,13 @@ The Neural Network model could be improved by testing different architectures. H
 Overall, the Random Forest classifier was the best choice for this specific model. It is fundamental to notice that every prediction case is unique, hence the necessity to evaluate each model as an exclusive case and choose the classifier that best suits the specific needs of each application. 
 The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
 
-<img width="788" alt="MLP Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/f7553ff7-eae3-4328-9a33-41c685c28472">
-
 ![MLP Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/deb9a9b5-8886-4142-9a2a-20a688a0aa1e)
 
-<img width="799" alt="Decision Tree Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/bb693d02-58bb-46ec-87f0-d87b55ccb64a">
+![Decision Tree Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/4c8dfdd9-474f-4e51-aa5b-d0b1f6560bc2)
 
-<img width="796" alt="KNN Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/6eb21225-9e87-46c8-9f6b-7b6480549ef2">
+![KNN Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/9e174804-5302-4f44-8262-8b10e0877d9f)
 
-<img width="792" alt="RF Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/ce159537-e841-46a9-aa8a-fcf9c23866b1">
-
+![RF Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/d76f1c90-ce0c-4313-9fbc-e4332e44a306)
 
 ### Thorough Investigation
 Our project showed you can predict Olympic medal outcome based on historical data with a high level of accuracy with each of the models ranging from 88-92% accuracy. To evaluate our results, we created a confusion matrix for each model. A confusion matrix shows the model’s prediction compared to the true outcome allowing a comprenenshive view. Our results reflected similar patterns with relatively similar outcomes accross all models. Excluded instances of no medals, the models predicted gold the best, with decision tree prediction it correctly 62.76%, followed by silver (54.42%) and bronze (52.24%). Notably, predicting no medal was the best across all models with random forest predicting it correctly 99.67% of the time. Interestingly, when no medal is predicted instead of either a gold, silver or bronze, gold preforms the best. For example in the decision tree matrix, a no medal was predicted instead of a gold 26.18% compared to 34.65% for silver and 38.8% for bronze. 
