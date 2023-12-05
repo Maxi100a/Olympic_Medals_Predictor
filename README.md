@@ -82,11 +82,8 @@ Overall, the Random Forest classifier was the best choice for this specific mode
 The data provided for a classification problem has their own characteristics that makes it unique, hence the importance of the understanding and analysis of it before start processing a model. When it comes down to choose what specific method is the best to be use for a classification problem, the data to be utilized plays a role in the process of selection the algorithm. For instances, some algorithms can work with categorical data, or fewer samples of data while others require more samples. In our specific case our target medal has a specific imbalance due to the categorical features “Gold”, “Silver”, ”Bronze”, and ”No medal”.
 
 ![MLP Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/deb9a9b5-8886-4142-9a2a-20a688a0aa1e)
-
 ![Decision Tree Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/4c8dfdd9-474f-4e51-aa5b-d0b1f6560bc2)
-
 ![KNN Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/9e174804-5302-4f44-8262-8b10e0877d9f)
-
 ![RF Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/d76f1c90-ce0c-4313-9fbc-e4332e44a306)
 
 ### Thorough Investigation
