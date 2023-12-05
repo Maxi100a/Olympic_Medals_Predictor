@@ -83,6 +83,8 @@ The data provided for a classification problem has their own characteristics tha
 
 <img width="788" alt="MLP Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/f7553ff7-eae3-4328-9a33-41c685c28472">
 
+![MLP Confusion Matrix](https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/deb9a9b5-8886-4142-9a2a-20a688a0aa1e)
+
 <img width="799" alt="Decision Tree Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/bb693d02-58bb-46ec-87f0-d87b55ccb64a">
 
 <img width="796" alt="KNN Confusion Matrix" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/6eb21225-9e87-46c8-9f6b-7b6480549ef2">
