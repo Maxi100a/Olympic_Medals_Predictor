@@ -30,6 +30,7 @@ This is a historical dataset on the modern Olympic Games, including all the Game
 | Sport | Sport |
 | Event | Event |
 | Medal | Gold, Silver, Bronze, or NA |
+
 ### Tools and Technologies
 - Batch Ingestion - [Kaggle API](https://www.kaggle.com/docs/api)
 - Orchestration - [Airflow](https://airflow.apache.org)
@@ -37,7 +38,7 @@ This is a historical dataset on the modern Olympic Games, including all the Game
 - Model Training & Selection - [Sci-kit Learn](https://scikit-learn.org/stable/)
 - Data Lake & Warehouse - [Amazon AWS S3](https://aws.amazon.com/s3/)
 - Language - [Python](https://www.python.org/)
-
+- Model Results Visualization - [Seaborn](https://seaborn.pydata.org/)
 
 ### Pipeline Architecture
 ![pipeline-architecture](Images/pipeline.png)
@@ -55,11 +56,19 @@ Since the publication of this dataset in 2018, it has been modified several time
 - 29/08/2018 - Added a new section about change in height and weight for Lifters over time, added index of content at the beginning of the kernel.
 
 ### Exploratory Data Analysis (EDA): 
-In data analysis, a comprehensive understanding of features in the Analytical Base Table (ABT) is crucial. Prior to building predictive models, thorough data exploration is essential. Tableau proves valuable for visualizing, understanding and uncovering correlations among features within the ABT. The data transformation process involves defining target features and implementing preprocessing techniques such as cleaning, aggregation, down-sampling, and dimensionality reduction to refine the data for robust analysis.
+In data analysis, a comprehensive understanding of features in the Analytical Base Table (ABT) is crucial. Prior to building predictive models, thorough data exploration is essential. Tableau proves valuable for visualizing, understanding and uncovering correlations among features within the ABT.
 <img width="687" alt="Screenshot 2023-11-30 at 4 04 17 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/943d5147-f03d-49ae-bcde-e57a9be4f942">
 <img width="634" alt="Screenshot 2023-11-30 at 4 05 07 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/7c8e63b9-2d17-42f7-b2f7-2fdfad37678a">
 <img width="1041" alt="Screenshot 2023-11-30 at 4 36 06 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b4c9b43a-c48a-46fa-82d0-a26e0bacd5d7">
 <img width="1031" alt="Screenshot 2023-11-30 at 4 39 25 PM" src="https://github.com/Maxi100a/Olympic_Medals_Predictor/assets/148810419/b3636189-d686-4ceb-b1b0-938ccb071367">
+
+### Data Transformations
+In order to prepare our dataset for the machine learning models, it was necessary to transform it into a clean dataset. Our pipeline performs the following transformations in this specific order:
+1. Filter out all of the winter games - As our project focuses solely on summer games, winter games are extraneous
+2. Drop the NOC, ID, Name, Games, Season colums - NOC, ID, and Name columns essentially serve as identifiers and do not yield any substantial gain for our machine learning models. Season is removed because we are solely using summer games. Games column is removed because it contains the year and season, one of which is still present and the other is removed.
+3. Replace NaNs in the Medals column with No Medals - This was done to fill in the missing value in the medals column
+4. Label encode the medal column - This transforms the categorical feature into an ordinal feature. The following values were encoded: 1: Gold, 2: Silver, 3: Bronze, 4: No Medal
+5. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
 
 ### Machine Learning Models Ml
 This project employed four classifiers: Multilayer Perceptron (MLP), Decision Tree, K-Nearest Neighbors (KNN), and Random Forest. MLP is a neural network with input, hidden, and output layers processing information through weighted connections. Decision Trees use features to create a tree-like structure by making decisions at each node. KNN classifies a data point based on the majority of its k-nearest neighbors in the feature space, with k being a user-defined parameter. Random Forests consist of decision trees trained on random subsets of data and features, and the final prediction is determined by a majority vote and averaging.
@@ -71,14 +80,10 @@ In terms of technical leadership, our primary focus should be on elevating the p
 
 Furthermore, we recommend the use of a continuous learning system that adapts to emerging trends and evolving athlete performances, ensuring the model remains cutting-edge and updated for the sporting world. This holistic approach positions the project for sustained success and relevance in the dynamic realm of sports analytics.
 
-## References
-[1] John D. Kelleher, Brian Mac Namee, Aoife D'Arcy. 2020. Fundamentals of machine learning for predictive data analytics: algorithms, worked examples, and case studies. Data to Insights to Decisions, Data exploration, pp. 23 to 113.
-
-[2] Wilkinson, L. and Friendly, M., 2009. The history of the cluster heat map. The American Statistician, 63(2), pp.179-184. 
-
 ## Setup
 ### Installation
 Before you get the code running, you will need to install the following Python packages.
+
 ```
 pip install pandas
 pip install scikit-learn
@@ -93,8 +98,18 @@ After you install the Kaggle package, you must create an authentication key from
 
 If you run into issues with this step, you can manually download the dataset from Kaggle as long as you store it into the expected file structure. 
 
+### Local vs Amazon AWS
+This project is set up to function on an Amazon EC2 instance running the docker container utilized in class. If you are attempting to run the project on your local machine, follow the instructions to "de-AWS" the python files. 
+
+### S3 Directory Link
+At the top of each file (batch_ingest, transform, models, analyze), you MUST specify the outmost folder for an S3 bucket. For example, this project was set up to go to "s3://\[CLASS_BUCKET\]/final_project". The code is set up to send it to specific folders inside the S3 bucket for your convenience, so only one folder is necessary per file.
 
 # TO-DO:
 - Write about Data Transformation Models
 - Include Results Infographic
-- Thorough Investigation
+
+## References
+[1] John D. Kelleher, Brian Mac Namee, Aoife D'Arcy. 2020. Fundamentals of machine learning for predictive data analytics: algorithms, worked examples, and case studies. Data to Insights to Decisions, Data exploration, pp. 23 to 113.
+
+[2] Wilkinson, L. and Friendly, M., 2009. The history of the cluster heat map. The American Statistician, 63(2), pp.179-184. 
+
