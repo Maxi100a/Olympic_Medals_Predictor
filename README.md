@@ -91,7 +91,7 @@ The data provided for a classification problem has their own characteristics tha
 
 
 ### Thorough Investigation
-Our project showed you can predict Olympic medal outcome based on historical data with a high level of acciraacy and high performance. To scale up this project, the data from Tokyo 2020 as well as real-time data into the dataset. The models could also be used in other sports competitions to predict the winners. Technically, other machine learning algrotisms can be implemeted
+Our project showed you can predict Olympic medal outcome based on historical data with a high level of accuracy with each of the models ranging from 88-92% accuracy. To evaluate our results, we created a confusion matrix for each model. A confusion matrix shows the model’s prediction compared to the true outcome. Our results reflected similar pattern with relatively similar outcomes in each model. Not considering no medals, the models predicted gold the best, with decision tree prediction it correctly 62.76%, then silver and then bronze last. Notably, predicting no medal was the best with random forest predicting it correctly 99.67% of the time. Interestingly, in the fourth row where no medal is prediction instead of either a gold, silver, or bronze medal, gold preforms the best. For example in the decision tree matrix, a no medal was predicted instead of a gold 26.18% compared to 38.8% for bronze. 
 
 
 ## Setup
