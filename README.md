@@ -68,8 +68,9 @@ In order to prepare our dataset for the machine learning models, it was necessar
 1. Filter out all of the winter games - As our project focuses solely on summer games, winter games are extraneous
 2. Drop the NOC, ID, Name, Games, Season colums - NOC, ID, and Name columns essentially serve as identifiers and do not yield any substantial gain for our machine learning models. Season is removed because we are solely using summer games. Games column is removed because it contains the year and season, one of which is still present and the other is removed.
 3. Replace NaNs in the Medals column with No Medals - This was done to fill in the missing value in the medals column
-4. Label encode the medal column - This transforms the categorical feature into an ordinal feature. The following values were encoded: 1: Gold, 2: Silver, 3: Bronze, 4: No Medal
-5. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
+4. Drop the entries with missing values - We decided to drop this as missing values in any column would result in the models not learning correctly. We chose this instead of using an average for each of the features because of the different physical builds that participate in the games. An athelete who performs in track is going to weigh significantly different than those in heavy sports. 
+5. Label encode the medal column - This transforms the categorical feature into an ordinal feature. The following values were encoded: 1: Gold, 2: Silver, 3: Bronze, 4: No Medal
+6. One-hot encode Sex, Team, City, Sport, and Event columns - In order to utilize categorical variables in our models, they had to be numerically encoded so that the models could learn from them. One-hot encoding allows for this without extra relationships being introduced (such as a ranked relationship like in the Label encoding) 
 
 ### Models Explanation and Analysis
 A classification model is a machine learning type of modeling used to predict the categories or classes of a given data set. In this case, we processed, trained, and evaluated the "120-years-of-olympic-history-athletes-and-results" dataset using four different models: Artificial Neural Networks (MPL), Decision Tree  Classifier(CLF), K-Nearest Neighbors (KNN), and Random Forest (RF), to predict the multi-categorical variable 'medal'. The image below contains the results of our 4 models.
@@ -93,6 +94,11 @@ The data provided for a classification problem has their own characteristics tha
 ### Thorough Investigation
 Our project showed you can predict Olympic medal outcome based on historical data with a high level of accuracy with each of the models ranging from 88-92% accuracy. To evaluate our results, we created a confusion matrix for each model. A confusion matrix shows the model’s prediction compared to the true outcome allowing a comprenenshive view. Our results reflected similar patterns with relatively similar outcomes accross all models. Excluded instances of no medals, the models predicted gold the best, with decision tree prediction it correctly 62.76%, followed by silver (54.42%) and bronze (52.24%). Notably, predicting no medal was the best across all models with random forest predicting it correctly 99.67% of the time. Interestingly, when no medal is predicted instead of either a gold, silver or bronze, gold preforms the best. For example in the decision tree matrix, a no medal was predicted instead of a gold 26.18% compared to 34.65% for silver and 38.8% for bronze. 
 
+
+In terms of scaling this project up, we recommend exploring different architectures for a neural network. This model is as good as it's hardward limitations allow, so if you create a more intricate strucutre, it is possible to improve this model's accuracy. Aside from your standard python debugging difficulties, there were no major limitations for this project. 
+
+### Future Steps
+Following this project, we recommend incoporating more into the final visualization of the models. For example, hosting the data on an interactive webserver that allows you to explore the predictions of the models would make for a challenging addition to this project that would elevate it. Another example of how you can change this project is instead of dropping the entries with missing columns, fill them in with an average value for that sport. If you do this, you will significantly change the size of the dataset which may allow for better model performance.
 
 
 ## Setup
